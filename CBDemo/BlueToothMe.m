@@ -67,7 +67,7 @@ static eventHardwareBlock privateBlock;
 
 - (void)hardwareResponse:(eventHardwareBlock)block
 {
-    block = [privateBlock copy];
+    privateBlock = [block copy];
 }
 
 + (BlueToothMe *)shared
