@@ -217,6 +217,16 @@ static eventHardwareBlock privateBlock;
         return;
     }
     
+    NSLog(@"peripheral.services: %@", testPeripheral.services);
+    
+    for (CBService *service in peripheral.services)
+    {
+        NSLog(@"Service found with UUID: %@", service.UUID);
+        
+        [testPeripheral discoverCharacteristics:nil forService:service];        
+    }
+    
+    /*
     [self.servicesCBUUID enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
         NSString *externalCBUUID = (NSString *)obj;
@@ -232,11 +242,12 @@ static eventHardwareBlock privateBlock;
             }
             else if ([service.UUID isEqual:[CBUUID UUIDWithString:CBUUIDGenericAccessProfileString]])
             {
-                /* GAP (Generic Access Profile) - discover device name characteristic */
+                // GAP (Generic Access Profile) - discover device name characteristic
                 [testPeripheral discoverCharacteristics:[NSArray arrayWithObject:[CBUUID UUIDWithString:CBUUIDDeviceNameString]]  forService:service];
             }
         }
     }];
+    */
 }
 
 /*
@@ -250,6 +261,21 @@ static eventHardwareBlock privateBlock;
         return;
     }
     
+    for (CBCharacteristic *characteristic in service.characteristics) 
+    {
+        // set notifer
+        [testPeripheral setNotifyValue:YES forCharacteristic:characteristic];
+        
+        // read
+        [testPeripheral readValueForCharacteristic:characteristic];        
+        
+        //write
+        uint16_t val = 2;
+        NSData * valData = [NSData dataWithBytes:(void*)&val length:sizeof(val)];
+        [testPeripheral writeValue:valData forCharacteristic:characteristic type:CBCharacteristicWriteWithResponse];  
+    }
+    
+    /*
     [self.servicesCBUUID enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
        
         NSString *localUUID = (NSString *)obj;
@@ -286,7 +312,7 @@ static eventHardwareBlock privateBlock;
         {
             for (CBCharacteristic *characteristic in service.characteristics) 
             {
-                /* Read device name */
+                // Read device name
                 if([characteristic.UUID isEqual:[CBUUID UUIDWithString:CBUUIDDeviceNameString]])
                 {                
                     [testPeripheral readValueForCharacteristic:characteristic];
@@ -295,6 +321,7 @@ static eventHardwareBlock privateBlock;
             }
         }
     }];
+    */
 }
 
 /*
