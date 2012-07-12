@@ -61,14 +61,14 @@
                          withPeripheral:(CBPeripheral *)peripheral 
                               withError:(NSError *)error
 {
-    
+    NSLog(@"did write value : %@, %@", characteristic.service.UUID, characteristic.value);
 }
 
 - (void)peripheralDidReadChracteristic:(CBCharacteristic *)characteristic 
                         withPeripheral:(CBPeripheral *)peripheral 
                              withError:(NSError *)error
 {
-    
+    NSLog(@"did read value : %@, %@", characteristic.service.UUID, characteristic.value);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
