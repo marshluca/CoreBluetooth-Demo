@@ -29,6 +29,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLabel:) name:kReadValueNotification object:nil];
 }
 
 - (void)viewDidUnload
@@ -36,11 +38,21 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReadValueNotification object:nil];    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark
+#pragma mark - Notification
+
+- (void)updateLabel:(NSData *)data
+{
+    label.text = data.description;
 }
 
 @end

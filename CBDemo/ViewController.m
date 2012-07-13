@@ -17,6 +17,8 @@
 {
     [super viewDidLoad];
     
+    self.title = @"Bluetooth";
+    
     _bluetoothInstance = [BlueToothMe shared];
     [_bluetoothInstance setDelegate:self];
     
