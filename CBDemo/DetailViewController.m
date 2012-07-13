@@ -30,8 +30,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.label.hidden = YES;
-    self.indicator.hidden = NO;
+    self.indicator.hidden = NO;    
+    self.hexLabel.hidden = YES;
+    self.decimalLabel.hidden = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLabel:) name:kReadValueNotification object:nil];
 }
