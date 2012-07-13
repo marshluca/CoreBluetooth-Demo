@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		329D756B15B07C1300C08B54 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329D756915B07C1300C08B54 /* DetailViewController.m */; };
+		329D756C15B07C1300C08B54 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329D756A15B07C1300C08B54 /* DetailViewController.xib */; };
 		B5FDACF014D1395E0032864B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FDACEF14D1395E0032864B /* UIKit.framework */; };
 		B5FDACF214D1395E0032864B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FDACF114D1395E0032864B /* Foundation.framework */; };
 		B5FDACF414D1395E0032864B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FDACF314D1395E0032864B /* CoreGraphics.framework */; };
@@ -20,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		329D756815B07C1300C08B54 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		329D756915B07C1300C08B54 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		329D756A15B07C1300C08B54 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		B5FDACEB14D1395D0032864B /* CBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FDACEF14D1395E0032864B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B5FDACF114D1395E0032864B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,6 +95,9 @@
 				B5FDAD0114D1395E0032864B /* ViewController.h */,
 				B5FDAD0214D1395E0032864B /* ViewController.m */,
 				B5FDAD0414D1395E0032864B /* ViewController.xib */,
+				329D756815B07C1300C08B54 /* DetailViewController.h */,
+				329D756915B07C1300C08B54 /* DetailViewController.m */,
+				329D756A15B07C1300C08B54 /* DetailViewController.xib */,
 				B5FDACF614D1395E0032864B /* Supporting Files */,
 			);
 			path = CBDemo;
@@ -167,6 +175,7 @@
 			files = (
 				B5FDACFA14D1395E0032864B /* InfoPlist.strings in Resources */,
 				B5FDAD0614D1395E0032864B /* ViewController.xib in Resources */,
+				329D756C15B07C1300C08B54 /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +190,7 @@
 				B5FDAD0014D1395E0032864B /* AppDelegate.m in Sources */,
 				B5FDAD0314D1395E0032864B /* ViewController.m in Sources */,
 				B5FDAD1014D139960032864B /* BlueToothMe.m in Sources */,
+				329D756B15B07C1300C08B54 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +302,7 @@
 				B5FDAD0B14D1395E0032864B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

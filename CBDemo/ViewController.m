@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "DetailViewController.h"
 
 @implementation ViewController
 
@@ -118,6 +118,9 @@
     
     NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey];
     [_bluetoothInstance.manager connectPeripheral:peripheral options:options];
+    
+    DetailViewController *controller = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 
