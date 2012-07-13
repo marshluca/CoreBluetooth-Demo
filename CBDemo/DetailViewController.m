@@ -14,7 +14,7 @@
 
 @implementation DetailViewController
 
-@synthesize label;
+@synthesize label, indicator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +30,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.label.hidden = YES;
+    self.indicator.hidden = NO;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLabel:) name:kReadValueNotification object:nil];
 }
 
@@ -38,6 +41,9 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    
+    self.label = nil;
+    self.indicator = nil;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReadValueNotification object:nil];    
 }
@@ -59,6 +65,11 @@
 
 - (void)updateLabel:(NSNotification *)notification
 {
+    if (self.label.hidden) {
+        self.label.hidden = NO;
+        self.indicator.hidden = YES;
+    }
+    
     label.text = [NSString stringWithFormat:@"%@", [notification object]];
 }
 
