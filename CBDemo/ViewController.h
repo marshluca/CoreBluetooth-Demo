@@ -10,6 +10,9 @@
 #import "BlueToothMe.h"
 
 @interface ViewController : UIViewController <BlueToothMeDelegate, UITableViewDelegate, UITableViewDataSource>
+{
+    BlueToothMe* _bluetoothInstance;
+}
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 

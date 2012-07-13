@@ -7,6 +7,7 @@
 //
 
 #import "BlueToothMe.h"
+#import "ViewController.h"
 
 static eventHardwareBlock privateBlock;
 
@@ -148,10 +149,10 @@ static eventHardwareBlock privateBlock;
     /* If there are any known devices, automatically connect to it.*/
     if([peripherals count] >= 1)
     {
-        testPeripheral = [peripherals objectAtIndex:0];
+        // testPeripheral = [peripherals objectAtIndex:0];
 
-        [manager connectPeripheral:testPeripheral
-                           options:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey]];
+        ViewController *controller = (ViewController *)delegate;
+        [controller.tableView reloadData];
     }
 }
 

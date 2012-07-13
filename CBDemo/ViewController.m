@@ -17,8 +17,8 @@
 {
     [super viewDidLoad];
     
-    BlueToothMe *instance = [BlueToothMe shared];
-    [instance setDelegate:self];
+    _bluetoothInstance = [BlueToothMe shared];
+    [_bluetoothInstance setDelegate:self];
     
     /*
     NSArray *characteristics = [NSArray arrayWithObjects:[CBUUID UUIDWithString:@"2A1E"], 
@@ -33,7 +33,7 @@
     [instance setCharacteristics:characteristics forServiceCBUUID:@"180A"];
     */
     
-    [instance hardwareResponse:^(CBPeripheral *peripheral, BLUETOOTH_STATUS status, NSError *error) {
+    [_bluetoothInstance hardwareResponse:^(CBPeripheral *peripheral, BLUETOOTH_STATUS status, NSError *error) {
         
         if (status == BLUETOOTH_STATUS_CONNECTED)
         {
@@ -51,8 +51,11 @@
         NSLog(@"CBUUID: %@, ERROR: %@", (NSString *)peripheral.UUID, error.localizedDescription);
     }];
     
-    [instance startScan];
+    [_bluetoothInstance startScan];
 }
+
+#pragma mark
+#pragma mark - BlueToothMeDelegate
 
 - (void)hardwareDidNotifyBehaviourOnCharacteristic:(CBCharacteristic *)characteristic
                                     withPeripheral:(CBPeripheral *)peripheral
@@ -79,5 +82,43 @@
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
+
+
+#pragma mark
+#pragma mark - Table view delegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_bluetoothInstance.dicoveredPeripherals count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+    }
+    
+    CBPeripheral *peripheral = [_bluetoothInstance.dicoveredPeripherals objectAtIndex:indexPath.row];
+    cell.textLabel.text = peripheral.name;
+    // cell.detailTextLabel.text = [peripheral isConnected] ? @"Connected" : @"Not connected";
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CBPeripheral *peripheral = [_bluetoothInstance.dicoveredPeripherals objectAtIndex:indexPath.row];
+    _bluetoothInstance.testPeripheral = peripheral;
+    
+    NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey];
+    [_bluetoothInstance.manager connectPeripheral:peripheral options:options];
+}
+
 
 @end
