@@ -10,7 +10,7 @@
 
 @interface DetailViewController : UIViewController
 
-@property (nonatomic, retain) IBOutlet UILabel *label;
+@property (nonatomic, retain) IBOutlet UILabel *hexLabel, *decimalLabel;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *indicator;
 
 @end

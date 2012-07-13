@@ -14,7 +14,7 @@
 
 @implementation DetailViewController
 
-@synthesize label, indicator;
+@synthesize hexLabel, decimalLabel, indicator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,8 +42,9 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     
-    self.label = nil;
-    self.indicator = nil;
+    self.hexLabel = nil;
+    self.indicator = nil;    
+    self.decimalLabel = nil;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReadValueNotification object:nil];    
 }
@@ -65,12 +66,13 @@
 
 - (void)updateLabel:(NSNotification *)notification
 {
-    if (self.label.hidden) {
-        self.label.hidden = NO;
+    if (self.hexLabel.hidden) {
+        self.hexLabel.hidden = NO;
+        self.decimalLabel.hidden = NO;        
         self.indicator.hidden = YES;
     }
     
-    label.text = [NSString stringWithFormat:@"%@", [notification object]];
+    hexLabel.text = [NSString stringWithFormat:@"%@", [notification object]];
 }
 
 @end

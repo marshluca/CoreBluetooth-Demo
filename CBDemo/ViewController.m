@@ -131,6 +131,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kConnectPeripheralNotification object:nil];
     
     DetailViewController *controller = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    controller.title = peripheral.name;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
