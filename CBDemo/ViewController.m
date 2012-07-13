@@ -78,6 +78,14 @@
                              withError:(NSError *)error
 {
     NSLog(@"did read value : %@, %@", characteristic.service.UUID, characteristic.value);
+    
+    if ([characteristic.service.UUID isEqual:[_bluetoothInstance.servicesCBUUID objectAtIndex:0]]) 
+    {
+        NSLog(@"post notification for the service");
+        [[NSNotificationCenter defaultCenter] postNotificationName:kReadValueNotification object:characteristic.value];    
+    } else {
+        NSLog(@"ignore the service");
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

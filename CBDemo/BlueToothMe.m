@@ -130,6 +130,8 @@ static eventHardwareBlock privateBlock;
 {
     NSLog(@"Did discover peripheral. peripheral: %@ rssi: %@, UUID: %@ advertisementData: %@ ", peripheral, RSSI, peripheral.UUID, advertisementData);
     
+    self.servicesCBUUID = [advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"];
+    
     if(![self.dicoveredPeripherals containsObject:peripheral])
         [self.dicoveredPeripherals addObject:peripheral];
     
