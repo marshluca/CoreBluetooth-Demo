@@ -50,9 +50,9 @@
 #pragma mark
 #pragma mark - Notification
 
-- (void)updateLabel:(NSData *)data
+- (void)updateLabel:(NSNotification *)notification
 {
-    label.text = data.description;
+    label.text = [NSString stringWithFormat:@"%@", [notification object]];
 }
 
 @end

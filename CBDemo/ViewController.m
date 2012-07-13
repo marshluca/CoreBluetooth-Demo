@@ -81,10 +81,10 @@
     
     if ([characteristic.service.UUID isEqual:[_bluetoothInstance.servicesCBUUID objectAtIndex:0]]) 
     {
-        NSLog(@"post notification for the service");
+        // NSLog(@"post notification for the service");
         [[NSNotificationCenter defaultCenter] postNotificationName:kReadValueNotification object:characteristic.value];    
     } else {
-        NSLog(@"ignore the service");
+        // NSLog(@"ignore the service");
     }
 }
 
