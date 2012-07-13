@@ -92,6 +92,9 @@ static eventHardwareBlock privateBlock;
         manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectPeripheral) name:kConnectPeripheralNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disconnectPeripheral) name:kDisconnectPeripheralNotification object:nil];
+    
     return self;
 }
 
@@ -105,6 +108,17 @@ static eventHardwareBlock privateBlock;
 - (void)stopScan
 {
     [manager stopScan];
+}
+
+- (void)connectPeripheral
+{
+    NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey];
+    [manager connectPeripheral:testPeripheral options:options];
+}
+
+- (void)disconnectPeripheral
+{
+    [manager cancelPeripheralConnection:testPeripheral];
 }
 
 #pragma mark - 

@@ -42,6 +42,13 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReadValueNotification object:nil];    
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisconnectPeripheralNotification object:nil];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

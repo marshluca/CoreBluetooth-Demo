@@ -126,8 +126,7 @@
     CBPeripheral *peripheral = [_bluetoothInstance.dicoveredPeripherals objectAtIndex:indexPath.row];
     _bluetoothInstance.testPeripheral = peripheral;
     
-    NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey];
-    [_bluetoothInstance.manager connectPeripheral:peripheral options:options];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kConnectPeripheralNotification object:nil];
     
     DetailViewController *controller = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
     [self.navigationController pushViewController:controller animated:YES];
