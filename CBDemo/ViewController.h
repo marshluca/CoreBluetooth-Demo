@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "BlueToothMe.h"
 
-@interface ViewController : UIViewController <BlueToothMeDelegate>
+@interface ViewController : UIViewController <BlueToothMeDelegate, UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
 
 @end
