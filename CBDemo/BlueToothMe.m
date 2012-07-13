@@ -269,10 +269,12 @@ static eventHardwareBlock privateBlock;
         // read
         [testPeripheral readValueForCharacteristic:characteristic];        
         
+        /*
         //write
         uint16_t val = 2;
         NSData * valData = [NSData dataWithBytes:(void*)&val length:sizeof(val)];
         [testPeripheral writeValue:valData forCharacteristic:characteristic type:CBCharacteristicWriteWithResponse];  
+        */ 
     }
     
     /*
