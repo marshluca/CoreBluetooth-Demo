@@ -56,6 +56,13 @@
     [_bluetoothInstance startScan];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [_bluetoothInstance stopScan];
+}
+
 #pragma mark
 #pragma mark - BlueToothMeDelegate
 

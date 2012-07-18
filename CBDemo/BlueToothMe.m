@@ -146,10 +146,15 @@ static eventHardwareBlock privateBlock;
     
     self.servicesCBUUID = [advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"];
     
-    if(![self.dicoveredPeripherals containsObject:peripheral])
+    if(![self.dicoveredPeripherals containsObject:peripheral]) 
+    {
         [self.dicoveredPeripherals addObject:peripheral];
+        
+        ViewController *controller = (ViewController *)delegate;
+        [controller.tableView reloadData];
+    }        
     
-    [manager retrievePeripherals:[NSArray arrayWithObject:(id)peripheral.UUID]];
+    // [manager retrievePeripherals:[NSArray arrayWithObject:(id)peripheral.UUID]];
 }
 
 /*
@@ -159,7 +164,7 @@ static eventHardwareBlock privateBlock;
 - (void)centralManager:(CBCentralManager *)central didRetrievePeripherals:(NSArray *)peripherals
 {
     NSLog(@"Retrieved peripheral: %d - %@", [peripherals count], peripherals);
-    
+
     [self stopScan];
     
     /* If there are any known devices, automatically connect to it.*/
