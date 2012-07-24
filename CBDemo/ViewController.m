@@ -11,13 +11,13 @@
 
 @implementation ViewController
 
-@synthesize tableView;
+@synthesize tableView, bluetoothType;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.title = @"Bluetooth";
+    self.title = @"Bluetooth Devices";
     
     _bluetoothInstance = [BlueToothMe shared];
     [_bluetoothInstance setDelegate:self];

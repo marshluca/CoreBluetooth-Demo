@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		320FAF2B15BED45A005FB380 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 320FAF2A15BED45A005FB380 /* RootViewController.m */; };
 		329D756B15B07C1300C08B54 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329D756915B07C1300C08B54 /* DetailViewController.m */; };
 		329D756C15B07C1300C08B54 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329D756A15B07C1300C08B54 /* DetailViewController.xib */; };
 		B5FDACF014D1395E0032864B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FDACEF14D1395E0032864B /* UIKit.framework */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		320FAF2915BED45A005FB380 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		320FAF2A15BED45A005FB380 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		329D756815B07C1300C08B54 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		329D756915B07C1300C08B54 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		329D756A15B07C1300C08B54 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
@@ -92,6 +95,8 @@
 				B5FDAD1114D1399B0032864B /* BlueToothMe */,
 				B5FDACFE14D1395E0032864B /* AppDelegate.h */,
 				B5FDACFF14D1395E0032864B /* AppDelegate.m */,
+				320FAF2915BED45A005FB380 /* RootViewController.h */,
+				320FAF2A15BED45A005FB380 /* RootViewController.m */,
 				B5FDAD0114D1395E0032864B /* ViewController.h */,
 				B5FDAD0214D1395E0032864B /* ViewController.m */,
 				B5FDAD0414D1395E0032864B /* ViewController.xib */,
@@ -191,6 +196,7 @@
 				B5FDAD0314D1395E0032864B /* ViewController.m in Sources */,
 				B5FDAD1014D139960032864B /* BlueToothMe.m in Sources */,
 				329D756B15B07C1300C08B54 /* DetailViewController.m in Sources */,
+				320FAF2B15BED45A005FB380 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
