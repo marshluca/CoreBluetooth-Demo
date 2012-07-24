@@ -50,10 +50,8 @@
     self.statusLabel.textColor = [UIColor whiteColor];    
     self.statusLabel.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.statusLabel];
-
     
-    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(endExercise)];
-    self.navigationItem.rightBarButtonItem =  doneItem;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateStatusLabel:) name:kReadAnimationValueNotification object:nil];
     
     // configure location manager
     // [self configureLocationManager];
@@ -61,6 +59,18 @@
     [self configureRoutes];
     
     timestamp = 0;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kDisconnectPeripheralNotification object:nil];
+}
+
+- (void)updateStatusLabel:(NSNotification *)notification
+{
+    NSLog(@"update status label");
 }
 
 - (void)endExercise
@@ -150,6 +160,8 @@
     self.mapView = nil;
 	self.routeLine = nil;
 	self.routeLineView = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReadAnimationValueNotification object:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

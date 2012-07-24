@@ -17,4 +17,4 @@
 #define kConnectPeripheralNotification     @"kConnectPeripheralNotification"
 #define kDisconnectPeripheralNotification  @"kDisconnectPeripheralNotification"
 #define kReadValueNotification             @"kReadValueNotification"
-#define kWriteValueNotification            @"kWriteValueNotification"
+#define kReadAnimationValueNotification    @"kReadAnimationValueNotification"
