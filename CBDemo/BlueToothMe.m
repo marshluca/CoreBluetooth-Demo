@@ -131,9 +131,9 @@ static eventHardwareBlock privateBlock;
 {
     if (![self supportLEHardware]) 
     {
-        @throw ([NSError errorWithDomain:@"Bluetooth LE not supported"
-                                    code:999
-                                userInfo:nil]);
+//        @throw ([NSError errorWithDomain:@"Bluetooth LE not supported"
+//                                    code:999
+//                                userInfo:nil]);
     }
 }
 
