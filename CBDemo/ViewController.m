@@ -20,6 +20,10 @@
     
     self.title = @"Bluetooth Devices";
     
+    if (self.bluetoothType == BluetoothTypeAnimation) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(exerciese)];        
+    }    
+    
     _bluetoothInstance = [BlueToothMe shared];
     [_bluetoothInstance setDelegate:self];
     
@@ -150,5 +154,10 @@
     }
 }
 
+- (void)exerciese
+{
+    ExerciseViewController *controller = [[ExerciseViewController alloc] initWithNibName:@"ExerciseViewController" bundle:nil];
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 @end

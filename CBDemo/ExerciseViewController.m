@@ -15,6 +15,7 @@
 @implementation ExerciseViewController
 
 @synthesize label = _label;
+@synthesize statusLabel = _statusLabel;
 @synthesize points = _points;
 @synthesize mapView = _mapView;
 @synthesize routeLine = _routeLine;
@@ -41,6 +42,15 @@
     self.label.textColor = [UIColor whiteColor];    
     self.label.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.label];
+
+    self.statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 480-20-44-50, 320, 50)];
+    self.statusLabel.text = @"运动状态检测中...";
+    self.statusLabel.alpha = 0.6;    
+    self.statusLabel.textAlignment = UITextAlignmentCenter;
+    self.statusLabel.textColor = [UIColor whiteColor];    
+    self.statusLabel.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:self.statusLabel];
+
     
     UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(endExercise)];
     self.navigationItem.rightBarButtonItem =  doneItem;
@@ -55,6 +65,8 @@
 
 - (void)endExercise
 {
+    return;
+    
     // stop the timer
     [timer invalidate];
     timer = nil;
@@ -133,6 +145,8 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     
+    self.label = nil;
+    self.statusLabel = nil;
     self.mapView = nil;
 	self.routeLine = nil;
 	self.routeLineView = nil;

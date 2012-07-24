@@ -38,6 +38,7 @@
 }
 
 @property (nonatomic, retain) UILabel *label;
+@property (nonatomic, retain) UILabel *statusLabel;
 @property (nonatomic, retain) MKMapView* mapView;
 @property (nonatomic, retain) NSMutableArray* points;
 @property (nonatomic, retain) MKPolyline* routeLine;
