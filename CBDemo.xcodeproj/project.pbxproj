@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		320FAF2B15BED45A005FB380 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 320FAF2A15BED45A005FB380 /* RootViewController.m */; };
+		320FAF3415BED790005FB380 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 320FAF3215BED790005FB380 /* ExerciseViewController.m */; };
+		320FAF3515BED790005FB380 /* ExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 320FAF3315BED790005FB380 /* ExerciseViewController.xib */; };
+		320FAF3715BED8D0005FB380 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320FAF3615BED8D0005FB380 /* MapKit.framework */; };
+		320FAF3915BED8D7005FB380 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320FAF3815BED8D7005FB380 /* CoreLocation.framework */; };
 		329D756B15B07C1300C08B54 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329D756915B07C1300C08B54 /* DetailViewController.m */; };
 		329D756C15B07C1300C08B54 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329D756A15B07C1300C08B54 /* DetailViewController.xib */; };
 		B5FDACF014D1395E0032864B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FDACEF14D1395E0032864B /* UIKit.framework */; };
@@ -25,6 +29,11 @@
 /* Begin PBXFileReference section */
 		320FAF2915BED45A005FB380 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		320FAF2A15BED45A005FB380 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		320FAF3115BED790005FB380 /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
+		320FAF3215BED790005FB380 /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
+		320FAF3315BED790005FB380 /* ExerciseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseViewController.xib; sourceTree = "<group>"; };
+		320FAF3615BED8D0005FB380 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		320FAF3815BED8D7005FB380 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		329D756815B07C1300C08B54 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		329D756915B07C1300C08B54 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		329D756A15B07C1300C08B54 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
@@ -51,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				320FAF3915BED8D7005FB380 /* CoreLocation.framework in Frameworks */,
+				320FAF3715BED8D0005FB380 /* MapKit.framework in Frameworks */,
 				B5FDAD0D14D139770032864B /* CoreBluetooth.framework in Frameworks */,
 				B5FDACF014D1395E0032864B /* UIKit.framework in Frameworks */,
 				B5FDACF214D1395E0032864B /* Foundation.framework in Frameworks */,
@@ -81,6 +92,8 @@
 		B5FDACEE14D1395D0032864B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				320FAF3815BED8D7005FB380 /* CoreLocation.framework */,
+				320FAF3615BED8D0005FB380 /* MapKit.framework */,
 				B5FDAD0C14D139770032864B /* CoreBluetooth.framework */,
 				B5FDACEF14D1395E0032864B /* UIKit.framework */,
 				B5FDACF114D1395E0032864B /* Foundation.framework */,
@@ -103,6 +116,9 @@
 				329D756815B07C1300C08B54 /* DetailViewController.h */,
 				329D756915B07C1300C08B54 /* DetailViewController.m */,
 				329D756A15B07C1300C08B54 /* DetailViewController.xib */,
+				320FAF3115BED790005FB380 /* ExerciseViewController.h */,
+				320FAF3215BED790005FB380 /* ExerciseViewController.m */,
+				320FAF3315BED790005FB380 /* ExerciseViewController.xib */,
 				B5FDACF614D1395E0032864B /* Supporting Files */,
 			);
 			path = CBDemo;
@@ -181,6 +197,7 @@
 				B5FDACFA14D1395E0032864B /* InfoPlist.strings in Resources */,
 				B5FDAD0614D1395E0032864B /* ViewController.xib in Resources */,
 				329D756C15B07C1300C08B54 /* DetailViewController.xib in Resources */,
+				320FAF3515BED790005FB380 /* ExerciseViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +214,7 @@
 				B5FDAD1014D139960032864B /* BlueToothMe.m in Sources */,
 				329D756B15B07C1300C08B54 /* DetailViewController.m in Sources */,
 				320FAF2B15BED45A005FB380 /* RootViewController.m in Sources */,
+				320FAF3415BED790005FB380 /* ExerciseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

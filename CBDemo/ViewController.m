@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DetailViewController.h"
+#import "ExerciseViewController.h"
 
 @implementation ViewController
 
@@ -137,9 +138,16 @@
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kConnectPeripheralNotification object:nil];
     
-    DetailViewController *controller = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
-    controller.title = peripheral.name;
-    [self.navigationController pushViewController:controller animated:YES];
+    if (self.bluetoothType == BluetoothTypeHeartRate) {
+        DetailViewController *controller = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+        controller.title = peripheral.name;
+        [self.navigationController pushViewController:controller animated:YES];
+    } else {
+        ExerciseViewController *controller = [[ExerciseViewController alloc] initWithNibName:@"ExerciseViewController" bundle:nil];
+        controller.title = peripheral.name;
+        [self.navigationController pushViewController:controller animated:YES];
+
+    }
 }
 
 
