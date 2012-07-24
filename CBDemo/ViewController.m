@@ -145,10 +145,12 @@
     if (self.bluetoothType == BluetoothTypeHeartRate) {
         DetailViewController *controller = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
         controller.title = peripheral.name;
+        controller.title = @"HearRate";
         [self.navigationController pushViewController:controller animated:YES];
     } else {
         ExerciseViewController *controller = [[ExerciseViewController alloc] initWithNibName:@"ExerciseViewController" bundle:nil];
         controller.title = peripheral.name;
+        controller.title = @"Animation";        
         [self.navigationController pushViewController:controller animated:YES];
 
     }
@@ -157,6 +159,7 @@
 - (void)exerciese
 {
     ExerciseViewController *controller = [[ExerciseViewController alloc] initWithNibName:@"ExerciseViewController" bundle:nil];
+    controller.title = @"Animation";
     [self.navigationController pushViewController:controller animated:YES];
 }
 
