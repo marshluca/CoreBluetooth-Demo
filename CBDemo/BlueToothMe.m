@@ -144,7 +144,9 @@ static eventHardwareBlock privateBlock;
 {
     NSLog(@"Did discover peripheral. peripheral: %@ rssi: %@, UUID: %@ advertisementData: %@ ", peripheral, RSSI, peripheral.UUID, advertisementData);
     
-    self.servicesCBUUID = [advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"];
+    NSLog(@"services: %@", peripheral.services);
+    
+    // self.servicesCBUUID = [advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"];
     
     if(![self.dicoveredPeripherals containsObject:peripheral]) 
     {
@@ -243,9 +245,10 @@ static eventHardwareBlock privateBlock;
     
     for (CBService *service in peripheral.services)
     {
-        NSLog(@"Service found with UUID: %@", service.UUID);
-        
-        [testPeripheral discoverCharacteristics:nil forService:service];        
+        //if ([service.UUID isEqual:[self.servicesCBUUID lastObject]]) {
+            [testPeripheral discoverCharacteristics:nil forService:service];        
+            NSLog(@"Service found with UUID: %@", service.UUID);
+        //}                
     }
     
     /*
@@ -285,6 +288,8 @@ static eventHardwareBlock privateBlock;
     
     for (CBCharacteristic *characteristic in service.characteristics) 
     {
+        NSLog(@"characteristic uuid: %@, service uuid: %@", characteristic.UUID, service.UUID);
+        
         // set notifer
         [testPeripheral setNotifyValue:YES forCharacteristic:characteristic];
         
