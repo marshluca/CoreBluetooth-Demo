@@ -88,7 +88,19 @@
         [scanner scanHexInt:&result];
         
         str = [NSString stringWithFormat:@"%d", result];
-    }
+    } else if ([str hasPrefix:@"<"] && [str hasSuffix:@">"]) {
+        str = [str stringByReplacingCharactersInRange:NSMakeRange(0, 1)
+                                           withString:@""];
+        str = [str stringByReplacingCharactersInRange:NSMakeRange(str.length-1, 1)
+                                           withString:@""];                
+        
+        unsigned result = 0;
+        NSScanner *scanner = [NSScanner scannerWithString:str];        
+        [scanner setScanLocation:0];
+        [scanner scanHexInt:&result];
+        
+        str = [NSString stringWithFormat:@"%d", result];
+    } 
 
     decimalLabel.text = str;    
 }
